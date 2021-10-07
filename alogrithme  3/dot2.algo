@@ -1,0 +1,54 @@
+FUNCTION READ_SIZE () : INTEGER 
+VAR 
+ n : INTEGER
+BEGIN
+ REPEAT
+   Read(n);
+ UNTIL (n>0))
+RETURN (n);
+END 
+
+PROCEDURE read_array(n:INTEGER, VAR V:ARRAY_OF_INTEGER)
+VAR i:INTEGER;
+BEGIN
+FOR i FROM 0 TO n-1  DO
+    Read(V[i]);
+END_FOR
+END
+
+FUNCTION DOT_PRODUCT(n:INTEGER,V1:ARRAY_OF_INTEGER,V2:ARRAY_OF_INTEGER):INTEGER 
+ PS:INTEGER = 0;
+BEGIN
+FOR i FROM 0 TO n-1  DO
+   PS:=PS+V1[i]*V2[i]
+END_FOR
+RETURN (PS);
+END 
+
+
+PROCEDURE write_array(n:INTEGER, V:ARRAY_OF_INTEGER)
+VAR i:INTEGER;
+BEGIN
+FOR i FROM 0 TO n-1  DO
+    write(V[i]);
+END_FOR
+END
+
+ALGORITHM DOT_PR
+VAR V1:ARRAY_OF_INTEGER;
+VAR V2:ARRAY_OF_INTEGER;
+VAR n:INTEGER;
+BEGIN
+ n:=READ_SIZE;
+ read_array(n,V1)
+ read_array(n,V2)
+ write_array(n,V1)
+ write_array(n,V2)
+ PS:=DOT_PRODUCT(n,V1,V2)
+ IF (PS==0)) 
+ THEN
+ RETURN('The Two vectors are orthogonal')
+ ELSE 
+ RETURN('The Two vectors are not orthogonal')
+ END_IF
+ END
